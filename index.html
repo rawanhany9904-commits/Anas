@@ -20,7 +20,6 @@
       display: flex;
       justify-content: center;
       align-items: center;
-      /* خلفية الصفحة الخارجية العامة */
       background: radial-gradient(circle at 10% 10%, rgba(255, 245, 235, 1) 0%, transparent 60%),
                   radial-gradient(circle at 90% 90%, rgba(230, 242, 255, 1) 0%, transparent 60%),
                   linear-gradient(180deg, #edf5ff 0%, #f7f9fc 50%, #fff7f0 100%);
@@ -30,7 +29,6 @@
       position: relative;
     }
 
-    /* النجوم المتناثرة في الخلفية */
     .stars-bg {
       position: absolute;
       top: 0;
@@ -163,7 +161,7 @@
       font-weight: 700;
     }
 
-    /* 🌟 الإطار الخارجي الكبير للجواب (مزيج أنيق بين الأبيض واللوحة الزيتية) */
+    /* كارت الجواب المفتوح المدمج مع خلفية مزيج الأبيض واللوحة الزيتية */
     .letter-card {
       width: 100%;
       max-width: 780px;
@@ -174,26 +172,10 @@
       opacity: 0;
       transform: translateY(30px) scale(0.96);
       transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
-      
-      /* التمازج الفني في الحاوية الخارجية مع لمسة من اللوحة والأبيض الناصع */
-      background: linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(239, 246, 255, 0.9) 50%, rgba(224, 242, 254, 0.85) 100%),
-                  radial-gradient(circle at 80% 10%, rgba(254, 240, 138, 0.4) 0%, transparent 40%);
-      border: 1px solid rgba(255, 255, 255, 0.8);
+      background: linear-gradient(135deg, #ffffff 0%, #edf6ff 50%, #e0f2fe 100%);
+      border: 1px solid rgba(255, 255, 255, 0.9);
       position: relative;
       overflow: hidden;
-    }
-
-    .letter-card::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      /* ملمس اللوحة الزيتية بشفافية خفيفة جداً وأنيقة على الحاوية الخارجية */
-      background: radial-gradient(circle at 50% 100%, rgba(30, 58, 138, 0.08) 0%, transparent 60%),
-                  radial-gradient(circle at 10% 20%, rgba(14, 116, 144, 0.06) 0%, transparent 50%);
-      pointer-events: none;
     }
 
     .letter-card.show {
@@ -213,31 +195,19 @@
       z-index: 1;
     }
 
-    /* الجانب الأيمن: نص الرسالة مع الخلفية الشفافة المضاءة */
+    /* نص الرسالة وملمس الخلفية الفنية المضاءة الممزوجة بالأبيض */
     .text-side {
       flex: 1;
       padding: 35px 30px;
       position: relative;
       background-color: #fdfefe;
-      background-image: radial-gradient(circle at 65% 15%, rgba(254, 243, 199, 0.45) 0%, transparent 45%);
+      background-image: 
+        radial-gradient(circle at 75% 20%, rgba(254, 243, 199, 0.6) 0%, transparent 45%),
+        radial-gradient(circle at 20% 80%, rgba(224, 242, 254, 0.5) 0%, transparent 50%);
       display: flex;
       flex-direction: column;
       justify-content: center;
       overflow: hidden;
-    }
-
-    .text-side::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: 
-        radial-gradient(circle at 30% 40%, rgba(255, 183, 77, 0.12) 0%, transparent 40%),
-        radial-gradient(circle at 70% 60%, rgba(59, 130, 246, 0.1) 0%, transparent 50%),
-        radial-gradient(circle at 50% 50%, rgba(255, 255, 255, 0.9) 0%, transparent 70%);
-      pointer-events: none;
     }
 
     .message-body {
@@ -250,7 +220,13 @@
       text-align: justify;
     }
 
-    /* الجانب الأيسر: شارة التقدير (Great Job!) */
+    .sparkle-icon {
+      display: inline-block;
+      margin-right: 4px;
+      font-size: 1.25rem;
+    }
+
+    /* الشارة الجانبية (Great Job!) */
     .image-side {
       width: 220px;
       background: linear-gradient(135deg, #fff7ed 0%, #ffedd5 100%);
@@ -309,7 +285,6 @@
       <div class="envelope-flap-top"></div>
       <div class="envelope-pocket"></div>
       <div class="wax-seal">
-        <!-- غيّري الاسم هنا لأنس أو أمجد -->
         <span class="seal-text">Anas</span>
       </div>
     </div>
@@ -320,12 +295,11 @@
         <!-- نص الرسالة -->
         <div class="text-side">
           <p class="message-body">
-            <!-- غيّري نص الرسالة هنا بحسب الشخص -->
-            باشمهندس انس المتحمس و ال دايما بيسأل هنعمل ايه .. و حقيقي ربنا يباركلك يا باشمهندس و دايما استمر انك تكون بتعرف اكثر في مجالك و تطور من نفسك .. ربنا يوفقك و ينفع بيك حقيقي و ان شاء الله الميد ترم يعدي على خير✨
+            باشمهندس انس المتحمس و ال دايما بيسأل هنعمل ايه .. و حقيقي ربنا يباركلك يا باشمهندس و دايما استمر انك تكون بتعرف اكثر في مجالك و تطور من نفسك .. ربنا يوفقك و ينفع بيك حقيقي و ان شاء الله الميد ترم يعدي على خير <span class="sparkle-icon">✨</span>
           </p>
         </div>
 
-        <!-- الشارة الجانبية (Great Job!) -->
+        <!-- الشارة الجانبية -->
         <div class="image-side">
           <div class="badge-container">
             <svg viewBox="0 0 200 200" width="100%" height="100%">
