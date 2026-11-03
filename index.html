@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>رسالة تقدير - Anas</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&family=Lemonada:wght@600;700&display=swap" rel="stylesheet">
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Cairo', sans-serif;
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      /* خلفية الصفحة الخارجية الناعمة والدافئة */
+      background: radial-gradient(circle at 10% 10%, rgba(255, 245, 235, 1) 0%, transparent 60%),
+                  radial-gradient(circle at 90% 90%, rgba(230, 242, 255, 1) 0%, transparent 60%),
+                  linear-gradient(180deg, #edf5ff 0%, #f7f9fc 50%, #fff7f0 100%);
+      background-attachment: fixed;
+      overflow-x: hidden;
+      padding: 20px;
+      position: relative;
+    }
+
+    /* خلفية النجوم المتناثرة بالأزرق والبرتقالي */
+    .stars-bg {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 0;
+      background-image: 
+        radial-gradient(circle, #ff8c42 2px, transparent 2px),
+        radial-gradient(circle, #2b6cb0 2px, transparent 2px),
+        radial-gradient(circle, #f6ad55 3px, transparent 3px),
+        radial-gradient(circle, #3182ce 2px, transparent 2px);
+      background-size: 180px 180px, 240px 240px, 200px 200px, 260px 260px;
+      background-position: 20px 30px, 130px 80px, 70px 150px, 190px 220px;
+      opacity: 0.65;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 800px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      perspective: 1200px;
+      z-index: 1;
+    }
+
+    /* المظروف البرتقالي المغلق */
+    .envelope-wrapper {
+      position: relative;
+      width: 100%;
+      max-width: 480px;
+      height: 310px;
+      background-color: #ff9e3b;
+      border-radius: 18px;
+      box-shadow: 0 15px 35px rgba(255, 140, 0, 0.25);
+      cursor: pointer;
+      transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), opacity 0.5s ease;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      overflow: hidden;
+    }
+
+    .envelope-wrapper:hover {
+      transform: translateY(-6px) scale(1.02);
+    }
+
+    .envelope-wrapper.hide {
+      opacity: 0;
+      transform: scale(0.85) translateY(-40px);
+      pointer-events: none;
+      position: absolute;
+    }
+
+    .envelope-flap-top {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 0;
+      height: 0;
+      border-left: 240px solid transparent;
+      border-right: 240px solid transparent;
+      border-top: 160px solid #f28b24;
+      transform-origin: top;
+      z-index: 3;
+      filter: drop-shadow(0 3px 5px rgba(0, 0, 0, 0.1));
+    }
+
+    .envelope-pocket {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 2;
+      pointer-events: none;
+    }
+
+    .envelope-pocket::before {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0;
+      height: 0;
+      border-left: 240px solid #ff8f24;
+      border-bottom: 155px solid #ff8f24;
+      border-top: 155px solid transparent;
+      border-right: 240px solid transparent;
+    }
+
+    .envelope-pocket::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      width: 0;
+      height: 0;
+      border-right: 240px solid #ff8f24;
+      border-bottom: 155px solid #ff8f24;
+      border-top: 155px solid transparent;
+      border-left: 240px solid transparent;
+    }
+
+    /* الختم الدائري الأبيض باسم Anas */
+    .wax-seal {
+      position: absolute;
+      z-index: 4;
+      width: 95px;
+      height: 95px;
+      background: #ffffff;
+      border-radius: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.12);
+      border: 3.5px solid #1a569d;
+      transition: transform 0.3s ease;
+    }
+
+    .envelope-wrapper:hover .wax-seal {
+      transform: scale(1.08);
+    }
+
+    .seal-text {
+      font-family: 'Lemonada', cursive;
+      color: #1a569d;
+      font-size: 1.15rem;
+      font-weight: 700;
+    }
+
+    /* كارت الجواب المفتوح */
+    .letter-card {
+      width: 100%;
+      max-width: 760px;
+      background: #ffffff;
+      border-radius: 24px;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+      padding: 14px;
+      display: none;
+      opacity: 0;
+      transform: translateY(30px) scale(0.96);
+      transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .letter-card.show {
+      display: block;
+      opacity: 1;
+      transform: translateY(0) scale(1);
+    }
+
+    .card-content-layout {
+      display: flex;
+      border-radius: 18px;
+      overflow: hidden;
+      background: #ffffff;
+      border: 1px solid #e2e8f0;
+      min-height: 280px;
+    }
+
+    /* الجانب الأيمن: النص وخلفية بيضاء شفافة بملمس مائي زيتي ناعم */
+    .text-side {
+      flex: 1;
+      padding: 35px 30px;
+      position: relative;
+      background-color: #fdfefe;
+      background-image: radial-gradient(circle at 65% 15%, rgba(254, 243, 199, 0.5) 0%, transparent 45%);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      overflow: hidden;
+    }
+
+    /* طبقة الشفافية البيضاء والزرقاء الزيتية المضيئة الناعمة */
+    .text-side::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: 
+        radial-gradient(circle at 30% 40%, rgba(255, 183, 77, 0.12) 0%, transparent 40%),
+        radial-gradient(circle at 70% 60%, rgba(59, 130, 246, 0.1) 0%, transparent 50%),
+        radial-gradient(circle at 50% 50%, rgba(255, 255, 255, 0.9) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .message-body {
+      position: relative;
+      z-index: 1;
+      font-size: 1.18rem;
+      line-height: 2.15;
+      color: #0f2b48;
+      font-weight: 700;
+      text-align: justify;
+    }
+
+    /* الجانب الأيسر: شارة التقدير المدمجة (Great Job!) */
+    .image-side {
+      width: 220px;
+      background: linear-gradient(135deg, #fff7ed 0%, #ffedd5 100%);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 20px;
+      flex-shrink: 0;
+      border-left: 1px solid #fed7aa;
+    }
+
+    .badge-container {
+      width: 140px;
+      height: 140px;
+      filter: drop-shadow(0 10px 15px rgba(234, 88, 12, 0.2));
+      transition: transform 0.3s ease;
+    }
+
+    .badge-container:hover {
+      transform: scale(1.05) rotate(2deg);
+    }
+
+    @media (max-width: 768px) {
+      .envelope-wrapper {
+        height: 270px;
+      }
+      .card-content-layout {
+        flex-direction: column-reverse;
+      }
+      .image-side {
+        width: 100%;
+        padding: 20px;
+      }
+      .badge-container {
+        width: 110px;
+        height: 110px;
+      }
+      .text-side {
+        padding: 25px 20px;
+      }
+      .message-body {
+        font-size: 1.05rem;
+        line-height: 1.95;
+        text-align: center;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="stars-bg"></div>
+
+  <div class="container">
+    <!-- المظروف البرتقالي المغلق -->
+    <div class="envelope-wrapper" id="envelope" onclick="openEnvelope()">
+      <div class="envelope-flap-top"></div>
+      <div class="envelope-pocket"></div>
+      <div class="wax-seal">
+        <span class="seal-text">Anas</span>
+      </div>
+    </div>
+
+    <!-- كارت الجواب بعد الفتح -->
+    <div class="letter-card" id="letter">
+      <div class="card-content-layout">
+        <!-- النص والملمس الفني المضاء الشفاف -->
+        <div class="text-side">
+          <p class="message-body">
+            باشمهندس انس المتحمس و ال دايما بيسأل هنعمل ايه .. و حقيقي ربنا يباركلك يا باشمهندس و دايما استمر انك تكون بتعرف اكثر في مجالك و تطور من نفسك .. ربنا يوفقك و ينفع بيك حقيقي و ان شاء الله الميد ترم يعدي على خير
+          </p>
+        </div>
+
+        <!-- الشارة المدمجة الكامله (Great Job!) -->
+        <div class="image-side">
+          <div class="badge-container">
+            <svg viewBox="0 0 200 200" width="100%" height="100%">
+              <path d="M75,135 L50,190 L75,175 L100,190 L88,135 Z" fill="#06b6d4" />
+              <path d="M125,135 L100,190 L125,175 L150,190 L138,135 Z" fill="#0891b2" />
+              <circle cx="100" cy="90" r="65" fill="#ea580c" />
+              <circle cx="100" cy="90" r="58" fill="#f97316" />
+              <circle cx="100" cy="90" r="50" fill="#fbbf24" />
+              <text x="100" y="80" text-anchor="middle" fill="#0f172a" font-family="'Cairo', sans-serif" font-weight="900" font-size="22">GREAT</text>
+              <text x="100" y="108" text-anchor="middle" fill="#0f172a" font-family="'Cairo', sans-serif" font-weight="900" font-size="26">JOB!</text>
+            </svg>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function openEnvelope() {
+      const envelope = document.getElementById('envelope');
+      const letter = document.getElementById('letter');
+
+      envelope.classList.add('hide');
+      
+      setTimeout(() => {
+        letter.classList.add('show');
+      }, 300);
+    }
+  </script>
+</body>
+</html>
