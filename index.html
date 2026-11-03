@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Anas</title>
+  <title>رسالة تقدير - Anas</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&family=Lemonada:wght@600;700&display=swap" rel="stylesheet">
@@ -14,21 +14,22 @@
       padding: 0;
     }
 
+    /* 🌟 خلفية الصفحة الكاملة الفراغ الكبير الممتد */
     body {
       font-family: 'Cairo', sans-serif;
       min-height: 100vh;
       display: flex;
       justify-content: center;
       align-items: center;
-      background: radial-gradient(circle at 10% 10%, rgba(255, 245, 235, 1) 0%, transparent 60%),
-                  radial-gradient(circle at 90% 90%, rgba(230, 242, 255, 1) 0%, transparent 60%),
-                  linear-gradient(180deg, #edf5ff 0%, #f7f9fc 50%, #fff7f0 100%);
-      background-attachment: fixed;
+      /* مزيج التدرج الفاتح مع صورة اللوحة الزيتية بشفافية أنيقة */
+      background: linear-gradient(180deg, rgba(237, 245, 255, 0.85) 0%, rgba(247, 249, 252, 0.85) 50%, rgba(255, 247, 240, 0.85) 100%),
+                  url('starry_bg.jpg') center/cover no-repeat fixed;
       overflow-x: hidden;
       padding: 20px;
       position: relative;
     }
 
+    /* النجوم والنقاط المتناثرة في الفراغ الكبير */
     .stars-bg {
       position: absolute;
       top: 0;
@@ -38,13 +39,13 @@
       pointer-events: none;
       z-index: 0;
       background-image: 
-        radial-gradient(circle, #ff8c42 2px, transparent 2px),
-        radial-gradient(circle, #2b6cb0 2px, transparent 2px),
+        radial-gradient(circle, #ff8c42 2.5px, transparent 2.5px),
+        radial-gradient(circle, #2b6cb0 2.5px, transparent 2.5px),
         radial-gradient(circle, #f6ad55 3px, transparent 3px),
-        radial-gradient(circle, #3182ce 2px, transparent 2px);
+        radial-gradient(circle, #3182ce 2.5px, transparent 2.5px);
       background-size: 180px 180px, 240px 240px, 200px 200px, 260px 260px;
       background-position: 20px 30px, 130px 80px, 70px 150px, 190px 220px;
-      opacity: 0.65;
+      opacity: 0.7;
     }
 
     .container {
@@ -57,7 +58,7 @@
       z-index: 1;
     }
 
-    /* المظروف المغلق */
+    /* المظروف البرتقالي المغلق */
     .envelope-wrapper {
       position: relative;
       width: 100%;
@@ -161,33 +162,22 @@
       font-weight: 700;
     }
 
-    /* 🌟 الإطار الخارجي الكبير: مزيج بين الأبيض وصورة اللوحة الزيتية */
+    /* 💌 كارت الجواب المفتوح (الإطار الأبيض الأنيق حول الرسالة) */
     .letter-card {
       width: 100%;
       max-width: 780px;
       border-radius: 26px;
-      box-shadow: 0 25px 50px rgba(15, 23, 42, 0.12);
-      padding: 18px;
+      box-shadow: 0 20px 45px rgba(15, 23, 42, 0.1);
+      padding: 16px;
       display: none;
       opacity: 0;
       transform: translateY(30px) scale(0.96);
       transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(8px);
+      border: 1px solid #ffffff;
       position: relative;
       overflow: hidden;
-      background-color: #ffffff;
-    }
-
-    /* ملمس اللوحة الزيتية الشفاف على الحاوية الخارجية الكبيرة */
-    .letter-card::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: url('starry_bg.jpg') center/cover no-repeat;
-      opacity: 0.25;
-      pointer-events: none;
     }
 
     .letter-card.show {
@@ -198,26 +188,29 @@
 
     .card-content-layout {
       display: flex;
-      border-radius: 18px;
+      border-radius: 20px;
       overflow: hidden;
       background: #ffffff;
-      box-shadow: 0 4px 15px rgba(0,0,0,0.04);
+      border: 1px solid #e2e8f0;
       min-height: 280px;
       position: relative;
       z-index: 1;
     }
 
-    /* الجزء الداخلي للمسدج: أبيض صافي ورائع */
+    /* الجزء الداخلي الخاص بالمسدج (أبيض هادئ ونظيف ومريح للعين) */
     .text-side {
       flex: 1;
       padding: 35px 30px;
-      background-color: #ffffff;
+      position: relative;
+      background-color: #fafcfe;
       display: flex;
       flex-direction: column;
       justify-content: center;
     }
 
     .message-body {
+      position: relative;
+      z-index: 1;
       font-size: 1.18rem;
       line-height: 2.15;
       color: #0f2b48;
@@ -231,6 +224,7 @@
       font-size: 1.25rem;
     }
 
+    /* الشارة الجانبية (Great Job!) */
     .image-side {
       width: 220px;
       background: linear-gradient(135deg, #fff7ed 0%, #ffedd5 100%);
