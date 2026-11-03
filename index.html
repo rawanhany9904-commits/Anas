@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Anas</title>
+  <title>رسالة تقدير - Anas</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&family=Lemonada:wght@600;700&display=swap" rel="stylesheet">
@@ -20,6 +20,7 @@
       display: flex;
       justify-content: center;
       align-items: center;
+      /* خلفية الصفحة بنفس ستايل بطاقة فاطمة المبهجة */
       background: radial-gradient(circle at 10% 10%, rgba(255, 245, 235, 1) 0%, transparent 60%),
                   radial-gradient(circle at 90% 90%, rgba(230, 242, 255, 1) 0%, transparent 60%),
                   linear-gradient(180deg, #edf5ff 0%, #f7f9fc 50%, #fff7f0 100%);
@@ -29,6 +30,7 @@
       position: relative;
     }
 
+    /* النجوم المتناثرة الشفافة */
     .stars-bg {
       position: absolute;
       top: 0;
@@ -44,7 +46,7 @@
         radial-gradient(circle, #3182ce 2px, transparent 2px);
       background-size: 180px 180px, 240px 240px, 200px 200px, 260px 260px;
       background-position: 20px 30px, 130px 80px, 70px 150px, 190px 220px;
-      opacity: 0.6;
+      opacity: 0.65;
     }
 
     .container {
@@ -57,7 +59,7 @@
       z-index: 1;
     }
 
-    /* المظروف المغلق */
+    /* المظروف المغلق البرتقالي */
     .envelope-wrapper {
       position: relative;
       width: 100%;
@@ -161,7 +163,7 @@
       font-weight: 700;
     }
 
-    /* كارت الجواب المفتوح المدمج مع خلفية مزيج الأبيض واللوحة الزيتية */
+    /* كارت الجواب المفتوح المقتبس من روح وسحر تصميم فاطمة */
     .letter-card {
       width: 100%;
       max-width: 780px;
@@ -172,7 +174,7 @@
       opacity: 0;
       transform: translateY(30px) scale(0.96);
       transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
-      background: linear-gradient(135deg, #ffffff 0%, #edf6ff 50%, #e0f2fe 100%);
+      background: linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(239, 246, 255, 0.9) 50%, rgba(224, 242, 254, 0.85) 100%);
       border: 1px solid rgba(255, 255, 255, 0.9);
       position: relative;
       overflow: hidden;
@@ -195,19 +197,33 @@
       z-index: 1;
     }
 
-    /* نص الرسالة وملمس الخلفية الفنية المضاءة الممزوجة بالأبيض */
+    /* خلفية الرسالة الزيتية الفاتحة بنفس طابع فاطمة بالضبط */
     .text-side {
       flex: 1;
       padding: 35px 30px;
       position: relative;
       background-color: #fdfefe;
       background-image: 
-        radial-gradient(circle at 75% 20%, rgba(254, 243, 199, 0.6) 0%, transparent 45%),
-        radial-gradient(circle at 20% 80%, rgba(224, 242, 254, 0.5) 0%, transparent 50%);
+        radial-gradient(circle at 75% 15%, rgba(254, 243, 199, 0.65) 0%, transparent 45%),
+        radial-gradient(circle at 25% 85%, rgba(224, 242, 254, 0.55) 0%, transparent 50%);
       display: flex;
       flex-direction: column;
       justify-content: center;
       overflow: hidden;
+    }
+
+    .text-side::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: 
+        radial-gradient(circle at 30% 40%, rgba(255, 183, 77, 0.15) 0%, transparent 40%),
+        radial-gradient(circle at 70% 60%, rgba(59, 130, 246, 0.12) 0%, transparent 50%),
+        radial-gradient(circle at 50% 50%, rgba(255, 255, 255, 0.85) 0%, transparent 70%);
+      pointer-events: none;
     }
 
     .message-body {
